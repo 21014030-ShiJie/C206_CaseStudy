@@ -10,6 +10,7 @@ public class C206_CaseStudyTest {
 	//prepare test data
 	private Users user1;
 	private Users user2;
+	private Users user3;
 	
 	private ArrayList<Users> userList;
 
@@ -17,6 +18,7 @@ public class C206_CaseStudyTest {
 	public void setUp() throws Exception {
 		user1 = new Users("TomTan", "p@sswo0rd");
 		user2 = new Users("MiaTan", "p@5sword");
+		user3 = new Users("MikaLee", "");
 		
 		userList = new ArrayList<Users>();
 	}
@@ -32,7 +34,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that error message is displayed if wrong username", user1, userList.get(0).getUserName());
 		
 		//Error message is displayed when password is wrong 
-		assertEquals("Test display meeage is shown when password is wrong", user1, userList.get(0).getPassword());
+		assertEquals("Test display message is shown when password is wrong", user1, userList.get(0).getPassword());
 	}
 
 	@Test 
@@ -41,13 +43,14 @@ public class C206_CaseStudyTest {
 		//User List is not null, so that can add new user
 		assertNotNull("Test if there is a valid user arraylist to add to", userList);
 		
-		//User password and username is the same 
+		//User password and username is the same as the newly added user record 
+		userList.addnewUsers(userList, user2);
 		assertSame("Test that the user username is the same", user2, userList.get(1).getPassword());
 		assertSame("Test that the user password is the same", user2, userList.get(1).getPassword());
 		
 		//User not able to create account 
-		userList.addnewUsers(userList, user2);
-		assertSame("Test that user is not able to create account", user2, userList.get(1).getPassword());
+		userList.addnewUsers(userList, user3);
+		assertSame("Test that user is not able to create account", user3, userList.get(2).getPassword());
 	}
 	
 	@After
