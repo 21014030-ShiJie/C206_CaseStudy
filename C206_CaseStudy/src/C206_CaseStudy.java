@@ -1,9 +1,70 @@
+import java.util.ArrayList;
 
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		ArrayList <Users> userList = new ArrayList<Users>();
+		
+		userList.add(new Users ("JaneTan", "p@sswo0rd"));
+		userList.add(new Users("MaryTan", "p@5sword"));
+		
+		int option = 0;
+		
+		while (option != 2) {
+			
+			menu();
+			option = Helper.readInt("Enter an option > ");
+			
+			if (option == 1) {
+				login();
+			
+			} else if (option == 2) {
+				System.out.println("Register Account");
+				
+				int userType = Helper.readInt("Enter option > ");
+				
+				Users newUser = inputDetails();
+				userList.addnewUsers(userList, newUser);
+				System.out.println("New User Added!");
+			
+			} else {
+				System.out.println("Invalid Option");
+			}
+		}
 
+	}
+	
+	public static void menu() {
+		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
+		System.out.println("1. Login");
+		System.out.println("2. Register Account");
+	}
+	//==================== option 1 =============================================
+	
+	public static void login() {
+		
+		String username = Helper.readString("Enter Username > ");
+		String password = Helper.readString("Enter password > ");
+		
+		if (username == Users.get(0).getUserName(username) && password == Users.get(0).getPassword(password)) {
+			System.out.println("Login Sucessful");
+		}
+	}
+
+	//=================== option 2 (new user) ====================================
+	
+	public static Users inputDetails() {
+		String userName = Helper.readString("Enter Password > ");
+		String password = Helper.readString("Enter Password > ");
+		
+		Users newUser = new Users(userName, password);
+		return newUser;
+	}
+	
+	public static void addnewUsers(ArrayList<Users> userList, Users newUser) {
+		userList.add(newUser);
 	}
 
 }
