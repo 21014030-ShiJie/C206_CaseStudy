@@ -32,7 +32,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that error message is displayed if wrong username", user1, userList.get(0).getUserName());
 		
 		//Error message is displayed when password is wrong 
-		assertEquals("Test display meeage is shown when password is wrong", user1, userList.get(0).getPassword());
+		assertEquals("Test display message is shown when password is wrong", user1, userList.get(0).getPassword());
 	}
 
 	@Test 
