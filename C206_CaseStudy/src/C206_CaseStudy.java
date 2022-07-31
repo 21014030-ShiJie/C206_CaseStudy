@@ -50,6 +50,8 @@ public class C206_CaseStudy {
 		
 		if (username == Users.get(0).getUserName(username) && password == Users.get(0).getPassword(password)) {
 			System.out.println("Login Sucessful");
+		} else {
+			System.out.println("Enter valid username or password");
 		}
 	}
 
@@ -61,10 +63,13 @@ public class C206_CaseStudy {
 		
 		Users newUser = new Users(userName, password);
 		return newUser;
+		
 	}
 	
 	public static void addnewUsers(ArrayList<Users> userList, Users newUser) {
 		userList.add(newUser);
+		
+		System.out.println("Account Created");
 	}
 
 }
