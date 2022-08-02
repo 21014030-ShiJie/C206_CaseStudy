@@ -7,6 +7,7 @@ public class C206_CaseStudy {
 		
 		ArrayList <Users> userList = new ArrayList<Users>();
 		ArrayList <Bid> bidList = new ArrayList<Bid>();
+		ArrayList <Item> itemList = new ArrayList<Item>();
 		
 		userList.add(new Users ("JaneTan", "p@sswo0rd"));
 		userList.add(new Users("MaryTan", "p@5sword"));
@@ -15,7 +16,7 @@ public class C206_CaseStudy {
 		
 		while (option != 2) {
 			
-			menu();
+			loginMenu();
 			option = Helper.readInt("Enter an option > ");
 			
 			if (option == 1) {
@@ -37,10 +38,20 @@ public class C206_CaseStudy {
 
 	}
 	
-	public static void menu() {
+	public static void loginMenu() {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
+	}
+	public static void bidMenu() {
+		System.out.println("Bid your item");
+		String name = Helper.readString("Enter item name > ");
+		for ( int i = 0; i < itemList.size(); i++) {
+			if ( itemList.get(i).getName().equalsIgnoreCase(name)) {
+				double bidPrice = Helper.readDouble("Enter your amount to bid on item >" );
+			}
+			}
+		
 	}
 	//==================== option 1 =============================================
 	
@@ -49,7 +60,8 @@ public class C206_CaseStudy {
 		String username = Helper.readString("Enter Username > ");
 		String password = Helper.readString("Enter password > ");
 		
-		if (username == Users.get(0).getUserName(username) && password == Users.get(0).getPassword(password)) {
+		for ( int i = 0; i < userList.size(); i++) {
+		if (username == Users.get(1).getUserName(username) && password == Users.get(0).getPassword(password)) {
 			System.out.println("Login Sucessful");
 		}
 	}
@@ -98,6 +110,18 @@ public class C206_CaseStudy {
 	}
 	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
 		bidList.add(bd);
+	}
+	public static void deleteBid(ArrayList<Bid> bidList) {
+		String ID = Helper.readString("Enter item ID to delete Bid  >");
+		for ( int i = 0; i < bidList.size(); i++) {
+			if (bidList.get(i).getID().contains(ID) && bidList.get(i).getBidPrice() != 0) {
+				bidList.remove(i);
+			}
+		
+			
+		}
+	
+		
 	}
 	
 	
