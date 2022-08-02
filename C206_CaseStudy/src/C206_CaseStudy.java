@@ -65,7 +65,6 @@ public class C206_CaseStudy {
 	// option 1 (login)
 //	public static void login() {
 
-
 	public static void login(ArrayList<Users> userList) {
 
 		String role = Helper.readString("Enter role > ");
@@ -74,29 +73,28 @@ public class C206_CaseStudy {
 		boolean success = false;
 
 		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getRole().equals(role) && userList.get(i).getPassword().equals(password)) {
+			if (userList.get(i).getRole().equalsIgnoreCase(role)
+					&& userList.get(i).getPassword().equalsIgnoreCase(password)) {
 
-				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+				System.out.println("Login Successful as " + userList.get(i).getRole());
 				success = true;
-				if (success == true) {
-					// category menu
-					// options
-					// menu item
-					// view item
-					// deal menu
-					// bid menu
-
+			
+			}else{
+				System.out.println("Login fail");
+				// category menu
+				// options
+				// menu item
+				// view item
+				// deal menu
+				// bid menu
 				}
-
-				System.out.println("Login Successful as" + userList.get(i).getRole());
-
-			} else {
-				System.out.println("Enter valid username, role, email and password");
-			}
-
 		}
-
 	}
+					
+				
+
+
+
 
 	// =================== option 2 (new user) ====================================
 
@@ -116,7 +114,6 @@ public class C206_CaseStudy {
 
 		System.out.println("Account Created");
 	}
-
 
 	// View all Users
 
@@ -285,10 +282,6 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	
-	//category
-	
-	
-
+	// category
 
 }
