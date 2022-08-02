@@ -100,6 +100,44 @@ public class C206_CaseStudy {
 		System.out.println("Bid List");
 
 	}
+	// =============================================== (viewing all items) ===================================================================================================
+	public static void viewItems(ArrayList<Item> itemList) {
+		System.out.println("Item List");
+	}
+
+	public static Item insertItem() {
+		String name = Helper.readString("Enter your name > ");
+		String description = Helper.readString("Enter a description >");
+		double minimum_bid_price = Helper.readDouble("Enter minimum bid price > ");
+		boolean isAvailable = Helper.readBoolean("Enter the availability > ");
+		String auctionstartdate = Helper.readString("Enter the auction start date > ");
+		String end_date = Helper.readString("Enter the end date > ");
+		double bid_increment = Helper.readDouble("Enter the bid increment > ");
+
+		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, 
+				auctionstartdate, end_date, bid_increment);
+		return itemList;
+	}
+
+	public static void viewItem(ArrayList<Item> itemList) {
+		String it = "";
+
+		for (int i = 0; i < itemList.size(); i++) {
+			it += String.format("%-10s %-10s %-10s %-10s %-10s %-10s", "NAME", "DESCRIPTION", "MINIMUM_BID_PRICE",
+					"AUCTIONSTARTDATE", "END DATE", "BID INCREMENT");
+			it += String.format("%-10s %-10s %-10s %-10s %-10s %-10s", itemList.get(i).getName(),
+					itemList.get(i).getDescription(), itemList.get(i).getMininum_bid_price(),
+					itemList.get(i).getAuctionstartdate(), itemList.get(i).getEnd_date(),
+					itemList.get(i).getBid_increment());
+		}
+
+		System.out.println(it);
+	}
+
+	public static void addItem(ArrayList<Item> itemList, Item it) {
+		itemList.add(it);
+	}
+}
 
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");
