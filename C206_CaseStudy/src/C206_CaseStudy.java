@@ -43,13 +43,12 @@ public class C206_CaseStudy {
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
 	}
-	// ==================== option 1 (login)
-	// =============================================
+	// ==================== option 1 (login) =============================================
 
 	public static void login(ArrayList<Users> userList) {
 
 		String username = Helper.readString("Enter Username > ");
-		String role = Helper.readString("Enter role");
+		String role = Helper.readString("Enter role >");
 		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter password > ");
 
@@ -59,7 +58,7 @@ public class C206_CaseStudy {
 				System.out.println("Logoin Successful as" + userList.get(i).getRole());
 
 			} else {
-				System.out.println("Enter valid username, role, email and passoword");
+				System.out.println("Enter valid username, role, email and password");
 			}
 		}
 	}
@@ -67,10 +66,10 @@ public class C206_CaseStudy {
 	// =================== option 2 (new user) ====================================
 
 	public static Users inputDetails() {
-		String userName = Helper.readString("Enter Username > ");
+		String userName = Helper.readString("Enter username > ");
 		String role = Helper.readString("Enter role > ");
 		String email = Helper.readString("Enter email address > ");
-		String password = Helper.readString("Enter Password > ");
+		String password = Helper.readString("Enter password > ");
 
 		Users newUser = new Users(userName, role, email, password);
 		return newUser;
@@ -83,8 +82,7 @@ public class C206_CaseStudy {
 		System.out.println("Account Created");
 	}
 
-	// ================== View all Users
-	// ============================================
+	// ================== View all Users ============================================
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
 
@@ -137,7 +135,7 @@ public class C206_CaseStudy {
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
 	}
-}
+
 
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");

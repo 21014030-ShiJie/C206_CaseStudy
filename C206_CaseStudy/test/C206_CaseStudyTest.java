@@ -18,7 +18,7 @@ public class C206_CaseStudyTest {
 	public void setUp() throws Exception {
 		user1 = new Users("TomTan","System Administrator", "TomTan@myrp.edu.sg" ,"p@sswo0rd");
 		user2 = new Users("MiaTan","Buyer", "MiaTan@myrp.edu.sg","p@5sword");
-		user3 = new Users("MikaLee", "Seller", "MikaLee@myrp.edu.sg", "p@55word");
+		user3 = new Users("MikaLee", "Seller", "MikaLee@myrp.edu.sg", " ");
 		
 		userList = new ArrayList<Users>();
 	}
@@ -29,6 +29,7 @@ public class C206_CaseStudyTest {
 		//User is able to login
 		assertSame("Test that the username is the same", user1, userList.get(0).getUserName());
 		assertSame("Test that the password is the same", user1, userList.get(0).getPassword());
+		
 		
 		//test error message is displayed when user name is wrong 
 		assertEquals("Test that error message is displayed if wrong username", user1, userList.get(0).getUserName());
