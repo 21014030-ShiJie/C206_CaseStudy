@@ -85,7 +85,7 @@ public class C206_CaseStudy {
 		return bidList;
 		
 	}
-	}
+	
 	public static void viewBit(ArrayList<Bid> bidList) {
 		String bd = "";
 		
