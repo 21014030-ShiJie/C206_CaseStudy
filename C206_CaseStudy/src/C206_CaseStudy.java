@@ -14,8 +14,8 @@ public class C206_CaseStudy {
 		userList.add(new Users("MaryTan", "Buyer", "MaryTan@myrp.edu.sg", "p@5sword"));
 		userList.add(new Users("TomTan", "Seller", "TomTan@myrp.edu.sg", "p@55word"));
 
-		catList.add(new Category("Books"));
-		catList.add(new Category("Electronic Accessories"));
+		catList.add(new Category("Laptops"));
+		catList.add(new Category("Cameras"));
 
 		int option = 0;
 
@@ -25,8 +25,6 @@ public class C206_CaseStudy {
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-
-//				login();
 
 				login(userList);
 
@@ -50,8 +48,8 @@ public class C206_CaseStudy {
 	public static void menu() {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
-
 		System.out.println("2. Register Account");
+		System.out.println("3. Exit");
 
 	}
 
@@ -59,55 +57,44 @@ public class C206_CaseStudy {
 		System.out.println("Bid for your items");
 		System.out.println("1. View bid");
 		System.out.println("2. Place bid");
-
 		System.out.println("2. Register Account");
 		System.out.println("3. Exit");
 
 	}
 
 	// option 1 (login)
-
-	// ==================== option 1 =============================================
-
 //	public static void login() {
-
-	// ==================== option 1 (login)
-	// =============================================
 
 	public static void login(ArrayList<Users> userList) {
 
-		String username = Helper.readString("Enter Username > ");
 		String role = Helper.readString("Enter role > ");
-		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter password > ");
 
 		boolean success = false;
 
 		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
-					&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
+			if (userList.get(i).getRole().equalsIgnoreCase(role)
+					&& userList.get(i).getPassword().equalsIgnoreCase(password)) {
 
-				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+				System.out.println("Login Successful as " + userList.get(i).getRole());
 				success = true;
-				if (success == true) {
-					// category menu
-					// options
-					// menu item
-					// view item
-					// deal menu
-					// bid menu
-
+			
+			}else{
+				System.out.println("Login fail");
+				// category menu
+				// options
+				// menu item
+				// view item
+				// deal menu
+				// bid menu
 				}
-
-				System.out.println("Login Successful as" + userList.get(i).getRole());
-
-			} else {
-				System.out.println("Enter valid username, role, email and password");
-			}
-
 		}
-
 	}
+					
+				
+
+
+
 
 	// =================== option 2 (new user) ====================================
 
@@ -128,8 +115,6 @@ public class C206_CaseStudy {
 		System.out.println("Account Created");
 	}
 
-	// ================== View all Users
-	// ============================================
 	// View all Users
 
 	public static void viewUsers(ArrayList<Users> userList) {
@@ -142,7 +127,11 @@ public class C206_CaseStudy {
 		}
 	}
 
+<<<<<<< HEAD
 	// =============================================== (viewing all items) ===================================================================================================
+=======
+	// (viewing all items)
+>>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
 	}
