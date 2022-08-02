@@ -9,7 +9,7 @@ public class Item {
 	private String end_date;
 	private double bid_increment;
 
-	public Item(String name, String description) {
+	public Item(String name, String description, double minimum_bid_price, boolean isAvailable, String auctionstartdate, String end_date, double bid_increment) {
 		this.name = name;
 		this.description = description;
 		this.mininum_bid_price = mininum_bid_price;
