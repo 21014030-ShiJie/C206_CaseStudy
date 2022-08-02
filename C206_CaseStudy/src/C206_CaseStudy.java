@@ -7,13 +7,22 @@ public class C206_CaseStudy {
 
 		ArrayList<Users> userList = new ArrayList<Users>();
 		ArrayList<Bid> bidList = new ArrayList<Bid>();
+<<<<<<< HEAD
 
 		userList.add(new Users("JaneTan", "p@sswo0rd"));
 		userList.add(new Users("MaryTan", "p@5sword"));
 
+=======
+		ArrayList<Category> catList = new ArrayList<Category>();
+		ArrayList<Item> itemList = new ArrayList<Item>();
+		
+>>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 		userList.add(new Users("JaneTan", "System Administrator", "JaneTan@myrp.edu.sg", "p@sswo0rd"));
 		userList.add(new Users("MaryTan", "Buyer", "MaryTan@myrp.edu.sg", "p@5sword"));
 		userList.add(new Users("TomTan", "Seller", "TomTan@myrp.edu.sg", "p@55word"));
+		
+		catList.add(new Category("Books"));
+		catList.add(new Category("Electronic Accessories"));
 
 		int option = 0;
 
@@ -36,8 +45,10 @@ public class C206_CaseStudy {
 				Users newUser = inputDetails();
 				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
-
-			} else {
+			
+			} else if (option == 3) {
+				System.out.println("Thank you for using COAS!");
+			}else {
 				System.out.println("Invalid Option");
 			}
 		}
@@ -47,8 +58,17 @@ public class C206_CaseStudy {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
+<<<<<<< HEAD
 	
+=======
+		System.out.println("3. Exit");
+		
+>>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 	}
+<<<<<<< HEAD
+=======
+	// option 1 (login)
+>>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 
 	// ==================== option 1 =============================================
 
@@ -104,8 +124,12 @@ public class C206_CaseStudy {
 		System.out.println("Account Created");
 	}
 
+<<<<<<< HEAD
 
 	// ================== View all Users ============================================
+=======
+	// View all Users
+>>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
 
