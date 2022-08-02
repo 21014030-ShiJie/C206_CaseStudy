@@ -42,6 +42,12 @@ public class C206_CaseStudy {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
+		
+	}
+	public static void bidMenu() {
+		System.out.println("Bid for your items");
+		System.out.println("1. View bid");
+		System.out.println("2. Place bid");
 	}
 	// ==================== option 1 (login)
 	// =============================================
@@ -52,17 +58,29 @@ public class C206_CaseStudy {
 		String role = Helper.readString("Enter role");
 		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter password > ");
-
+		boolean success = false;
 		for (int i = 0; i < userList.size(); i++) {
 			if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
 					&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
 				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+				success = true;
+				if ( success == true) {
+					//category menu
+					// options 
+					// menu item
+					// view item 
+					// deal menu 
+					// bid menu 
+					
+					
+				}
 
 			} else {
 				System.out.println("Enter valid username, role, email and passoword");
 			}
 		}
 	}
+	
 
 	// =================== option 2 (new user) ====================================
 
@@ -95,11 +113,7 @@ public class C206_CaseStudy {
 		}
 	}
 
-	// viewing bid
-	public static void viewBid(ArrayList<Bid> bidList) {
-		System.out.println("Bid List");
 
-	}
 	// =============================================== (viewing all items) ===================================================================================================
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
@@ -133,11 +147,16 @@ public class C206_CaseStudy {
 
 		System.out.println(it);
 	}
+	// viewing bid
+	public static void viewBid(ArrayList<Bid> bidList) {
+		System.out.println("Bid List");
+
+	}
 
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
 	}
-}
+
 
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");
@@ -216,20 +235,21 @@ public class C206_CaseStudy {
 	}
 
 	// deleting deal
-	public static void deleteDeal() {
+	public static void deleteDeal(ArrayList<Deal> dealList) {
 
 	    String dealID = Helper.readString("Enter Deal ID to delete: ");
 	    String deal = dealID;
-
+	    for ( int i = 0; i < dealList.size(); i++) {
 	    if (deal == null) {
 	      System.out.println("Deal ID not found!");
 
 	    } else {
-	      char confirmRemove = Helper.readChar("Are you sure you wish to remove " + deal.getItemName() + "(Y/N): ");
+	      char confirmRemove = Helper.readChar("Are you sure you wish to remove " + dealList.get(i).getItemName() + "(Y/N): ");
 	        
 	        if(confirmRemove == 'y' | confirmRemove == 'Y') {
-	          deal. 
+	           
 	          
+	        }
 	          
 	          
 	        }
