@@ -4,7 +4,6 @@ public class Category{
 	private String catName;
 
 	public Category(String catName) {
-		super();
 		this.catName = catName;
 	}
 
