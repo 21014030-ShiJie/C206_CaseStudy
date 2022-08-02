@@ -1,10 +1,10 @@
 
-public class Category extends Item{
+public class Category{
 	
 	private String catName;
 
-	public Category(String name, String description, String catName) {
-		super(name, description);
+	public Category(String catName) {
+		super();
 		this.catName = catName;
 	}
 
