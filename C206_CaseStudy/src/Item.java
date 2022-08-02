@@ -70,8 +70,8 @@ public class Item {
 		return end_date;
 	}
 
+
 	public double getBid_increment() {
 		return bid_increment;
 	}
-
 }
