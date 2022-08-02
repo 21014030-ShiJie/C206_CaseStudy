@@ -141,32 +141,8 @@ public class C206_CaseStudy {
 		itemList.add(it);
 	}
 
-}
 
-	public static Bid insertBid() {
-		String name = Helper.readString("Enter your name >");
-		String id = Helper.readString("Enter Bid ID > ");
-		String sellerEmail = Helper.readString("Enter seller email > ");
-		String buyerEmail = Helper.readString("Enter buyer email > ");
-		double bidPrice = Helper.readDouble("Enter bid price for item >");
-		Bid bidList = new Bid(id, name, sellerEmail, buyerEmail, bidPrice);
-		return bidList;
-	}
 
-	public static void viewBit(ArrayList<Bid> bidList) {
-		String bd = "";
-		for (int i = 0; i < bidList.size(); i++) {
-			bd += String.format(" %-10s %-10s %-10s %-10s %-10s", "NAME", "ID", "SELLER EMAIL", "BUYER EMAIL",
-					"BID PRICE");
-			bd += String.format(" %-10s %-10s %-10s %-10s %-10.2f", bidList.get(i).getName(), bidList.get(i).getID(),
-					bidList.get(i).getSellerEmail(), bidList.get(i).getBuyerEmail(), bidList.get(i).getBidPrice());
-		}
-		System.out.println(bd);
-	}
-
-	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
-		bidList.add(bd);
-	}
 
 // ======================== deal ===========================================
 	public static Deal addDeal() {
