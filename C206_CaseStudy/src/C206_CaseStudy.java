@@ -339,13 +339,7 @@ public class C206_CaseStudy {
 
 	}
 	
-	
-	private void userCat() {
-		int option = 0;
-		catMenu();
-		
-		
-	}
+
 	
 	
 	
