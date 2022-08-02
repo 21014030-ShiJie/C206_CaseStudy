@@ -12,6 +12,8 @@ public class C206_CaseStudy {
 		userList.add(new Users("MaryTan","Buyer","MaryTan@myrp.edu.sg", "p@5sword"));
 		userList.add(new Users("TomTan", "Seller", "TomTan@myrp.edu.sg", "p@55word"));
 		
+		
+		
 		int option = 0;
 		
 		while (option != 2) {
@@ -31,17 +33,21 @@ public class C206_CaseStudy {
 				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
 			
-			} else {
+			} else if (option == 3) {
+				System.out.println("Thank you for using COAS!");
+			}
+			else {
 				System.out.println("Invalid Option");
 			}
 		}
-
 	}
 	
 	public static void menu() {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
+		System.out.println("3. Exit");
+		
 	}
 	//==================== option 1 (login) =============================================
  

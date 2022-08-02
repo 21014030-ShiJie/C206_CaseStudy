@@ -16,7 +16,7 @@ public class Item {
 		this.isAvailable = isAvailable;
 		this.auctionstartdate = auctionstartdate;
 		this.end_date = end_date;
-		this.bid_increment = bid_increment
+		this.bid_increment = bid_increment;
 	}
 
 	public String toString() {
