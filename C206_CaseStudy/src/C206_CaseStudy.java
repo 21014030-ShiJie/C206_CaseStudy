@@ -28,7 +28,7 @@ public class C206_CaseStudy {
 				int userType = Helper.readInt("Enter option > ");
 				
 				Users newUser = inputDetails();
-				userList.addnewUsers();
+				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
 			
 			} else {
