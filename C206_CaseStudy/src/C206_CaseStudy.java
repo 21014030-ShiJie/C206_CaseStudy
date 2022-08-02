@@ -37,7 +37,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
 
-			} else if (option == 3) {
+			}else if (option == 3) {
 				System.out.println("Thank you for using COAS!");
 			} else {
 				System.out.println("Invalid Option");
@@ -55,11 +55,18 @@ public class C206_CaseStudy {
 
 	public static void bidMenu() {
 		System.out.println("Bid for your items");
-		System.out.println("1. View bid");
-		System.out.println("2. Place bid");
+		System.out.println("1. Place bid");
 		System.out.println("2. Register Account");
 		System.out.println("3. Exit");
 
+	}
+	
+	public static void mainMenu() {
+		System.out.println("1. View All Items");
+		System.out.println("2. View Category");
+		System.out.println("3. View Bid");
+		System.out.println("4. View Deals");
+		System.out.println("5. Exit");
 	}
 
 	// option 1 (login)
@@ -79,12 +86,7 @@ public class C206_CaseStudy {
 				System.out.println("Logoin Successful as" + userList.get(i).getRole());
 				success = true;
 				if (success == true) {
-					// category menu
-					// options
-					// menu item
-					// view item
-					// deal menu
-					// bid menu
+					mainMenu();
 
 				}
 
@@ -287,6 +289,64 @@ public class C206_CaseStudy {
 
 	
 	//category
+	public static void catMenu() {
+		System.out.println("VIEW CATEGORY");
+		System.out.println("1. View All Category");
+		System.out.println("2. Add New Category");
+		System.out.println("3. Delete Category");
+	}
+	
+	public static String retrieveCategory(ArrayList<Category> catList) {
+		String output = "";
+		
+		for(int i = 0; i < catList.size(); i++) {
+			output += String.format("%-5s", catList.get(i).getCatName());
+		}
+		return output;
+	}
+	
+	public static void viewAllCategory(ArrayList<Category> catList) {
+		System.out.println("CATEGORY LIST");
+		String output = String.format( "%-5s\n", "Name:");
+		output += retrieveCategory(catList);
+		System.out.println(output);
+	}
+	
+	public static Category inputCat() {
+		String userCat = Helper.readString("Enter new category name: ");
+		
+		Category a = new Category(userCat);
+		return a;
+	}
+	
+	public static void addCategory(ArrayList<Category> catList, Category a) {
+		catList.add(a);
+	}
+
+	public static Category removeCat(ArrayList<Category> catList) {
+		String removeCat = Helper.readString("Enter category to remove: ");
+
+		boolean isRemove = false;
+
+		for (int i = 0; i < catList.size(); i++) {
+			if (catList.get(i).getCatName() == removeCat) {
+				catList.remove(i);
+				isRemove = true;
+			}
+		}
+
+		return isRemove;
+
+	}
+	
+	
+	private void userCat() {
+		int option = 0;
+		catMenu();
+		
+		
+	}
+	
 	
 	
 
