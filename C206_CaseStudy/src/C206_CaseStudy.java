@@ -35,7 +35,6 @@ public class C206_CaseStudy {
 				System.out.println("Invalid Option");
 			}
 		}
-
 	}
 
 	public static void menu() {
@@ -60,7 +59,7 @@ public class C206_CaseStudy {
 			} else {
 				System.out.println("Enter valid username, role, email and password");
 			}
-		}
+		}	
 	}
 
 	// =================== option 2 (new user) ====================================
@@ -92,7 +91,8 @@ public class C206_CaseStudy {
 					userList.get(i).getEmail(), userList.get(i).getPassword());
 		}
 	}
-
+	
+	// =============================================== (viewing all items) ===================================================================================================
 	// viewing bid
 	public static void viewBid(ArrayList<Bid> bidList) {
 		System.out.println("Bid List");
@@ -136,7 +136,6 @@ public class C206_CaseStudy {
 		itemList.add(it);
 	}
 
-
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");
 		String id = Helper.readString("Enter Bid ID > ");
@@ -148,7 +147,6 @@ public class C206_CaseStudy {
 		return bidList;
 
 	}
-
 	public static void viewBit(ArrayList<Bid> bidList) {
 		String bd = "";
 
@@ -167,7 +165,10 @@ public class C206_CaseStudy {
 	}
 
 	// ======================== deal ===========================================
-
+	public static void viewDeals(ArrayList<Deal> dealList) {
+		System.out.println("Deal List");
+	}
+	
 	public static Deal addDeal() {
 
 		String id = Helper.readString("Enter deal ID: ");
@@ -201,23 +202,28 @@ public class C206_CaseStudy {
 	}
 
 	// deleting deal
-	public static void deleteDeal() {
-
+	public static void deleteDeal(ArrayList<Deal> dealList) {
+		
 	    String dealID = Helper.readString("Enter Deal ID to delete: ");
-	    String deal = dealID;
+	    
+	    boolean exist = doExistDeal(dealList, dealID);
 
-	    if (deal == null) {
+	    if (exist == false) {
 	      System.out.println("Deal ID not found!");
 
 	    } else {
-	      char confirmRemove = Helper.readChar("Are you sure you wish to remove " + deal.getItemName() + "(Y/N): ");
-	        
-	        if(confirmRemove == 'y' | confirmRemove == 'Y') {
-	          deal. 
-	          
-	          
+	    	for (int i = 0; i > dealList.size(); i++) {
+	    		if(dealID.equals(dealList.get(i).getItemName())) {
+	    			dealList.remove(i);
+	    		}
+	    		System.out.println("Deal Deleted");
 	          
 	        }
 	    }
 	  }
+
+	private static boolean doExistDeal(ArrayList<Deal> dealList, String dealID) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
