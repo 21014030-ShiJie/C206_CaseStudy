@@ -141,5 +141,3 @@ public class C206_CaseStudy {
 		itemList.add(it);
 	}
 }
-
-// view by category
