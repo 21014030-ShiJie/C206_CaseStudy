@@ -7,6 +7,7 @@ public class Item {
 	private boolean isAvailable;
 	private String auctionstartdate;
 	private String end_date;
+	private double bid_increment;
 
 	public Item(String name, String description) {
 		this.name = name;
@@ -15,11 +16,12 @@ public class Item {
 		this.isAvailable = isAvailable;
 		this.auctionstartdate = auctionstartdate;
 		this.end_date = end_date;
+		this.bid_increment = bid_increment
 	}
 
 	public String toString() {
 		String itemInfo = String.format("%-10s %-30s %-10s %-10s %-10s %-10s,", name, description,
-				showAvailability(isAvailable), auctionstartdate, end_date);
+				showAvailability(isAvailable), auctionstartdate, end_date, bid_increment);
 
 		return itemInfo;
 	}
@@ -67,5 +69,8 @@ public class Item {
 	public String getEnd_date() {
 		return end_date;
 	}
-
+	
+	public double getBid_increment() {
+		return bid_increment;
+	}
 }
