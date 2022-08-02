@@ -16,9 +16,9 @@ public class C206_CaseStudyTest {
 
 	@Before
 	public void setUp() throws Exception {
-		user1 = new Users("TomTan", "p@sswo0rd");
-		user2 = new Users("MiaTan", "p@5sword");
-		user3 = new Users("MikaLee", "");
+		user1 = new Users("TomTan","System Administrator", "TomTan@myrp.edu.sg" ,"p@sswo0rd");
+		user2 = new Users("MiaTan","Buyer", "MiaTan@myrp.edu.sg","p@5sword");
+		user3 = new Users("MikaLee", "Seller", "MikaLee@myrp.edu.sg", "p@55word");
 		
 		userList = new ArrayList<Users>();
 	}
