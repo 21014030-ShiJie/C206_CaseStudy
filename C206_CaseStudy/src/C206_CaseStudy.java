@@ -7,22 +7,16 @@ public class C206_CaseStudy {
 
 		ArrayList<Users> userList = new ArrayList<Users>();
 		ArrayList<Bid> bidList = new ArrayList<Bid>();
-<<<<<<< HEAD
-
-		userList.add(new Users("JaneTan", "p@sswo0rd"));
-		userList.add(new Users("MaryTan", "p@5sword"));
-
-=======
 		ArrayList<Category> catList = new ArrayList<Category>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
 		
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 		userList.add(new Users("JaneTan", "System Administrator", "JaneTan@myrp.edu.sg", "p@sswo0rd"));
 		userList.add(new Users("MaryTan", "Buyer", "MaryTan@myrp.edu.sg", "p@5sword"));
 		userList.add(new Users("TomTan", "Seller", "TomTan@myrp.edu.sg", "p@55word"));
 		
 		catList.add(new Category("Books"));
 		catList.add(new Category("Electronic Accessories"));
+		
 
 		int option = 0;
 
@@ -33,7 +27,7 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 
-				login();
+//				login();
 
 				login(userList);
 
@@ -58,21 +52,16 @@ public class C206_CaseStudy {
 		System.out.println("CAMPUS ONLINE AUCTION SHOP SYSTEM (COAS)");
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
-<<<<<<< HEAD
-	
-=======
 		System.out.println("3. Exit");
 		
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 	}
-<<<<<<< HEAD
-=======
+
 	// option 1 (login)
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
+
 
 	// ==================== option 1 =============================================
 
-	public static void login() {
+//	public static void login() {
 
 	// ==================== option 1 (login) =============================================
 
@@ -84,13 +73,13 @@ public class C206_CaseStudy {
 		String password = Helper.readString("Enter password > ");
 
 
-		if (username == Users.get(0).getUserName(username) && password == Users.get(0).getPassword(password)) {
+		if (username == Users.getUserName(username) && password == Users.getPassword(password)) {
 			System.out.println("Login Sucessful");
 
 		for (int i = 0; i < userList.size(); i++) {
 			if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
 					&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
-				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+				System.out.println("Login Successful as" + userList.get(i).getRole());
 
 			} else {
 				System.out.println("Enter valid username, role, email and password");
@@ -102,6 +91,7 @@ public class C206_CaseStudy {
 		}	
 
 	}
+//	}
 
 	// =================== option 2 (new user) ====================================
 
@@ -111,10 +101,9 @@ public class C206_CaseStudy {
 		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter Password > ");
 
-		Users newUser = new Users(userName, password);
-
 		Users newUser = new Users(userName, role, email, password);
 		return newUser;
+	
 
 	}
 
@@ -124,12 +113,9 @@ public class C206_CaseStudy {
 		System.out.println("Account Created");
 	}
 
-<<<<<<< HEAD
-
 	// ================== View all Users ============================================
-=======
 	// View all Users
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
+
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
 
@@ -160,10 +146,9 @@ public class C206_CaseStudy {
 		String auctionstartdate = Helper.readString("Enter the auction start date > ");
 		String end_date = Helper.readString("Enter the end date > ");
 		double bid_increment = Helper.readDouble("Enter the bid increment > ");
-		String category = Helper.readString("Enter a category > ");
 
 		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, auctionstartdate, end_date,
-				bid_increment, category);
+				bid_increment);
 		return itemList;
 	}
 
@@ -176,7 +161,7 @@ public class C206_CaseStudy {
 			it += String.format("%-10s %-10s %-10s %-10s %-10s %-10s", itemList.get(i).getName(),
 					itemList.get(i).getDescription(), itemList.get(i).getMininum_bid_price(),
 					itemList.get(i).getAuctionstartdate(), itemList.get(i).getEnd_date(),
-					itemList.get(i).getBid_increment(), itemList.get(i).getCategory());
+					itemList.get(i).getBid_increment());
 		}
 
 		System.out.println(it);
@@ -220,7 +205,9 @@ public class C206_CaseStudy {
 	for ( int i = 0; i < bidList.size(); i++) {
 		if (bidList.get(i).getID().contains(ID) && bidList.get(i).getBidPrice() != 0) {
 			bidList.remove(i);
+			}
 		}
+	}
 
 	// ======================== deal ===========================================
 	public static void viewDeals(ArrayList<Deal> dealList) {
@@ -254,24 +241,6 @@ public class C206_CaseStudy {
 		dealList.add(output);
 	}
 
-// deleting deal
-public static void deleteDeal() {
-    String dealID = Helper.readString("Enter Deal ID to delete: ");
-    String deal = dealID;
-    if (deal == null) {
-      System.out.println("Deal ID not found!");
-    } else {
-      char confirmRemove = Helper.readChar("Are you sure you wish to remove " + deal.getItemName() + "(Y/N): ");
-        
-        if(confirmRemove == 'y' | confirmRemove == 'Y') {
-          deal. 
-          
-          
-          
-        }
-    }
-}
-
 	// deleting deal
 	public static void deleteDeal(ArrayList<Deal> dealList) {
 		
@@ -297,4 +266,7 @@ public static void deleteDeal() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	//category
+	
 }
