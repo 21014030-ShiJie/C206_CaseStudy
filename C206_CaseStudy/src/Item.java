@@ -8,9 +8,8 @@ public class Item {
 	private String auctionstartdate;
 	private String end_date;
 	private double bid_increment;
-	private String category;
 
-	public Item(String name, String description, double minimum_bid_price, boolean isAvailable, String auctionstartdate, String end_date, double bid_increment, String category) {
+	public Item(String name, String description, double minimum_bid_price, boolean isAvailable, String auctionstartdate, String end_date, double bid_increment) {
 		this.name = name;
 		this.description = description;
 		this.mininum_bid_price = mininum_bid_price;
@@ -18,7 +17,6 @@ public class Item {
 		this.auctionstartdate = auctionstartdate;
 		this.end_date = end_date;
 		this.bid_increment = bid_increment;
-		this.category = category;
 	}
 
 	public String toString() {
@@ -77,7 +75,4 @@ public class Item {
 		return bid_increment;
 	}
 	
-	public String getCategory() {
-		return category;
-	}
 }
