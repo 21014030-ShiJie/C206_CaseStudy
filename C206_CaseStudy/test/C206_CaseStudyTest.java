@@ -10,13 +10,15 @@ public class C206_CaseStudyTest {
 	//prepare test data
 	private Users user1;
 	private Users user2;
+	private Users user3;
 	
 	private ArrayList<Users> userList;
 
 	@Before
 	public void setUp() throws Exception {
-		user1 = new Users("TomTan", "p@sswo0rd");
-		user2 = new Users("MiaTan", "p@5sword");
+		user1 = new Users("TomTan","System Administrator", "TomTan@myrp.edu.sg" ,"p@sswo0rd");
+		user2 = new Users("MiaTan","Buyer", "MiaTan@myrp.edu.sg","p@5sword");
+		user3 = new Users("MikaLee", "Seller", "MikaLee@myrp.edu.sg", "p@55word");
 		
 		userList = new ArrayList<Users>();
 	}
@@ -41,13 +43,14 @@ public class C206_CaseStudyTest {
 		//User List is not null, so that can add new user
 		assertNotNull("Test if there is a valid user arraylist to add to", userList);
 		
-		//User password and username is the same 
+		//User password and username is the same as the newly added user record 
+		C206_CaseStudy.addnewUsers(userList, user2);
 		assertSame("Test that the user username is the same", user2, userList.get(1).getPassword());
 		assertSame("Test that the user password is the same", user2, userList.get(1).getPassword());
 		
 		//User not able to create account 
-		userList.addnewUsers(userList, user2);
-		assertSame("Test that user is not able to create account", user2, userList.get(1).getPassword());
+		C206_CaseStudy.addnewUsers(userList, user3);
+		assertSame("Test that user is not able to create account", user3, userList.get(2).getPassword());
 	}
 	
 	@After
