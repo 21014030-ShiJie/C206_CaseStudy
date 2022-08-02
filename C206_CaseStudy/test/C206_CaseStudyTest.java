@@ -44,12 +44,12 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is a valid user arraylist to add to", userList);
 		
 		//User password and username is the same as the newly added user record 
-		userList.addnewUsers(userList, user2);
+		C206_CaseStudy.addnewUsers(userList, user2);
 		assertSame("Test that the user username is the same", user2, userList.get(1).getPassword());
 		assertSame("Test that the user password is the same", user2, userList.get(1).getPassword());
 		
 		//User not able to create account 
-		userList.addnewUsers(userList, user3);
+		C206_CaseStudy.addnewUsers(userList, user3);
 		assertSame("Test that user is not able to create account", user3, userList.get(2).getPassword());
 	}
 	
