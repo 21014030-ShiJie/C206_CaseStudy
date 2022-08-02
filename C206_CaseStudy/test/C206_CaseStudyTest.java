@@ -19,6 +19,13 @@ public class C206_CaseStudyTest {
 	
 	private ArrayList<Users> userList;
 	private ArrayList<Bid> bidList;
+	
+	//item data
+	private Item I1;
+	private Item I2;
+	private Item I3;
+	
+	private ArrayList<Item> itemList;
 
 	@Before
 	public void setUp() throws Exception {
@@ -29,9 +36,12 @@ public class C206_CaseStudyTest {
 		bid1 = new Bid("A1003","Asus","MikaLee@myrp.edu.sg","MiaTan@myrp.edu.sg",1400.00);
 		bid2 = new Bid("A1004","Mac","MikaLee@myrp.edu.sg","MiaTan@myrp.edu.sg",1800.00);
 		bid3 = new Bid("A1005","Sony","MikaLee@myrp.edu.sg","MiaTan@myrp.edu.sg",1500.00);
+		I1 = new Item("Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
+		I2 = new Item ("Acer", "A12", 1300.00, false, "09/07", "19/10", 10/00);
 		
 		userList = new ArrayList<Users>();
 		bidList = new ArrayList<Bid>();
+		
 	}
 	
 	@Test 
@@ -88,8 +98,28 @@ public class C206_CaseStudyTest {
 		bid2 = null;
 		bid3 = null;
 		bidList = null;
+		I1 = null;
+		I2 = null;
 	}
 	
+	
+	@Test 
+	public void testAddItem() {
+	// item list is not null, so that will be able to add a new item - boundary
+	assertNotNull("Check if there is a valid Item arrayList to add to", itemList);
+	
+	//Given an empty list, after adding 1 item, the size of the list is 1 - normal
+	//The item just added is as same as the first item of the list
+	C206_CaseStudy.addItem(itemList, I1);
+	assertEquals("Check that item arraylist size is 1", 1, itemList.size());
+	assertSame("Check that item is added", I1, itemList.get(0));
+	
+	//Add another item. test The size of the list is 2? - normal
+	//The item just added is as same as the second item of the list
+	C206_CaseStudy.addItem(itemList, I2);
+	assertEquals("Test that item arraylist size is 2", 2, itemList.size());
+	assertSame("Test that item is added", I2, itemList.get(1));
+}
 
 	@Test
 	public void c206_test() {

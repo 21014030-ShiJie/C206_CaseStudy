@@ -142,8 +142,7 @@ public class C206_CaseStudy {
 		}
 	}
 
-	// =============================================== (viewing all items)
-	// ===================================================================================================
+	// =============================================== (viewing all items) ===================================================================================================
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
 	}
@@ -175,6 +174,14 @@ public class C206_CaseStudy {
 		}
 
 		System.out.println(it);
+	}
+	
+	public static void itemMenu () {
+		System.out.println("Adding an item");
+		System.out.println("1. Add an item");
+		System.out.println("2. View all items");
+		System.out.println("3. Update an item");
+		System.out.println("4. Exit");
 	}
 
 	// viewing bid
