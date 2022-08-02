@@ -7,10 +7,15 @@ public class C206_CaseStudy {
 
 		ArrayList<Users> userList = new ArrayList<Users>();
 		ArrayList<Bid> bidList = new ArrayList<Bid>();
-
+		ArrayList<Category> catList = new ArrayList<Category>();
+		ArrayList<Item> itemList = new ArrayList<Item>();
+		
 		userList.add(new Users("JaneTan", "System Administrator", "JaneTan@myrp.edu.sg", "p@sswo0rd"));
 		userList.add(new Users("MaryTan", "Buyer", "MaryTan@myrp.edu.sg", "p@5sword"));
 		userList.add(new Users("TomTan", "Seller", "TomTan@myrp.edu.sg", "p@55word"));
+		
+		catList.add(new Category("Books"));
+		catList.add(new Category("Electronic Accessories"));
 
 		int option = 0;
 
