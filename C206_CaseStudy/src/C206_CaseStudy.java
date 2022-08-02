@@ -7,7 +7,6 @@ public class C206_CaseStudy {
 
 		ArrayList<Users> userList = new ArrayList<Users>();
 		ArrayList<Bid> bidList = new ArrayList<Bid>();
-
 		ArrayList<Category> catList = new ArrayList<Category>();
 		ArrayList<Item> itemList = new ArrayList<Item>();
 
@@ -27,7 +26,7 @@ public class C206_CaseStudy {
 
 			if (option == 1) {
 
-				login();
+//				login();
 
 				login(userList);
 
@@ -53,12 +52,10 @@ public class C206_CaseStudy {
 		System.out.println("1. Login");
 		System.out.println("2. Register Account");
 		System.out.println("3. Exit");
-		
 
-	// ==================== option 1 =============================================
+	}
 
-	public static void login() {
-
+	// option 1 (login)
 	// ==================== option 1 (login)
 	// =============================================
 
@@ -69,18 +66,19 @@ public class C206_CaseStudy {
 		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter password > ");
 
-
-		if (username == Users.get(0).getUserName(username) && password == Users.get(0).getPassword(password)) {
+		if (username == Users.getUserName(username) && password == Users.getPassword(password)) {
 			System.out.println("Login Sucessful");
 
-		for (int i = 0; i < userList.size(); i++) {
-			if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
-					&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
-				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+			for (int i = 0; i < userList.size(); i++) {
+				if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
+						&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
+					System.out.println("Login Successful as" + userList.get(i).getRole());
 
-			} else {
-				System.out.println("Enter valid username, role, email and password");
+				} else {
+					System.out.println("Enter valid username, role, email and password");
+				}
 			}
+		}
 	}
 
 	// =================== option 2 (new user) ====================================
@@ -90,8 +88,6 @@ public class C206_CaseStudy {
 		String role = Helper.readString("Enter role > ");
 		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter Password > ");
-
-		Users newUser = new Users(userName, password);
 
 		Users newUser = new Users(userName, role, email, password);
 		return newUser;
@@ -106,6 +102,7 @@ public class C206_CaseStudy {
 
 	// ================== View all Users
 	// ============================================
+	// View all Users
 
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
@@ -119,16 +116,12 @@ public class C206_CaseStudy {
 
 	// =============================================== (viewing all items)
 	// ===================================================================================================
-	// viewing bid
 
 	// viewing bid
 	public static void viewBid(ArrayList<Bid> bidList) {
 		System.out.println("Bid List");
 
 	}
-
-	// =============================================== (viewing all items)
-	// ===================================================================================================
 
 	// =============================================== (viewing all items)
 	// ===================================================================================================
@@ -144,10 +137,8 @@ public class C206_CaseStudy {
 		String auctionstartdate = Helper.readString("Enter the auction start date > ");
 		String end_date = Helper.readString("Enter the end date > ");
 		double bid_increment = Helper.readDouble("Enter the bid increment > ");
-		String category = Helper.readString("Enter a category > ");
 
-		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, auctionstartdate, end_date,
-				bid_increment, category);
+		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, auctionstartdate, end_date, bid_increment);
 
 		return itemList;
 	}
@@ -161,7 +152,7 @@ public class C206_CaseStudy {
 			it += String.format("%-10s %-10s %-10s %-10s %-10s %-10s", itemList.get(i).getName(),
 					itemList.get(i).getDescription(), itemList.get(i).getMininum_bid_price(),
 					itemList.get(i).getAuctionstartdate(), itemList.get(i).getEnd_date(),
-					itemList.get(i).getBid_increment(), itemList.get(i).getCategory());
+					itemList.get(i).getBid_increment());
 		}
 
 		System.out.println(it);
@@ -205,9 +196,12 @@ public class C206_CaseStudy {
 	for ( int i = 0; i < bidList.size(); i++) {
 		if (bidList.get(i).getID().contains(ID) && bidList.get(i).getBidPrice() != 0) {
 			bidList.remove(i);
+			}
 		}
+	}
 
 	// ======================== deal ===========================================
+
 	public static void viewDeals(ArrayList<Deal> dealList) {
 		System.out.println("Deal List");
 	}
@@ -237,10 +231,10 @@ public class C206_CaseStudy {
 
 	public static void addDeal(ArrayList<Deal> dealList, Deal output) {
 		dealList.add(output);
-
 	}
 
 	// deleting deal
+
 	public static void deleteDeal(ArrayList<Deal> dealList) {
 
 		String dealID = Helper.readString("Enter Deal ID to delete: ");
@@ -262,7 +256,19 @@ public class C206_CaseStudy {
 	}
 
 	private static boolean doExistDeal(ArrayList<Deal> dealList, String dealID) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
