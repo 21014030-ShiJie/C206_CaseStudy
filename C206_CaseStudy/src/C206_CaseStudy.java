@@ -85,16 +85,22 @@ public class C206_CaseStudy {
 		return bidList;
 		
 	}
+	}
 	public static void viewBit(ArrayList<Bid> bidList) {
-		String output = "";
+		String bd = "";
 		
 		for ( int i = 0; i < bidList.size(); i++ ) {
-			output += String.format(" %-10s %-10s %-10s %-10s %-10s"  , "NAME","ID","SELLER EMAIL","BUYER EMAIL","BID PRICE");
-			output += String.format(" %-10s %-10s %-10s %-10s %-10.2f", bidList.get(i).getName(),bidList.get(i).getID(),bidList.get(i).getSellerEmail(),bidList.get(i).getBuyerEmail(),bidList.get(i).getBidPrice());
+			bd += String.format(" %-10s %-10s %-10s %-10s %-10s"  , "NAME","ID","SELLER EMAIL","BUYER EMAIL","BID PRICE");
+			bd += String.format(" %-10s %-10s %-10s %-10s %-10.2f", bidList.get(i).getName(),bidList.get(i).getID(),bidList.get(i).getSellerEmail(),bidList.get(i).getBuyerEmail(),bidList.get(i).getBidPrice());
 		}
-		System.out.println(output);
+		System.out.println(bd);
 	
 	}
+	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
+		bidList.add(bd);
+	}
+	
+	
 	
 
 }
