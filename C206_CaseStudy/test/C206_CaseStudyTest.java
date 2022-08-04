@@ -38,15 +38,17 @@ public class C206_CaseStudyTest {
 	public void testlogin() {
 		
 		//User is able to login
-		assertSame("Test that the username is the same", user1, userList.get(0).getUserName());
-		assertSame("Test that the password is the same", user1, userList.get(0).getPassword());
+//		assertSame("Test that the username is the same", user1, userList.get(0).getUserName());
+//		assertSame("Test that the password is the same", user1, userList.get(0).getPassword());
+		assertSame("Test that the username is the same","TomTan" , userList.get(1).getUserName());
+		assertSame("Test that the password is the same", "p@sswo0rd", userList.get(1).getPassword());
 		
 		
 		//test error message is displayed when user name is wrong 
-		assertEquals("Test that error message is displayed if wrong username", user1, userList.get(0).getUserName());
+		assertNotEquals("Test that error message is displayed if wrong username","Tomtan" , userList.get(1).getUserName());
 		
 		//Error message is displayed when password is wrong 
-		assertEquals("Test display message is shown when password is wrong", user1, userList.get(0).getPassword());
+		assertNotEquals("Test display message is shown when password is wrong","p@ssword" , userList.get(1).getPassword());
 	}
 
 	@Test 
@@ -57,21 +59,25 @@ public class C206_CaseStudyTest {
 		
 		//User password and username is the same as the newly added user record 
 		C206_CaseStudy.addnewUsers(userList, user2);
-		assertSame("Test that the user username is the same", user2, userList.get(1).getPassword());
-		assertSame("Test that the user password is the same", user2, userList.get(1).getPassword());
+		assertSame("Test that the user username is the same", "MiaTan", userList.get(2).getUserName());
+		assertSame("Test that the user password is the same", "p@5sword", userList.get(2).getPassword());
 		
 		//User not able to create account 
 		C206_CaseStudy.addnewUsers(userList, user3);
-		assertSame("Test that user is not able to create account", user3, userList.get(2).getPassword());
+		assertSame("Test that user is not able to create account", "", userList.get(3).getPassword());
 	}
+	
 	@Test
 	public void testAddBid() {
 		// assure the BidList is not null
 		assertNotNull("Test if there is valid Bid arraylist to add to",bidList);
+		
 		//given an empty list, after adding 1 item, the size of the list is 1
 		C206_CaseStudy.addBid(bidList, bid1);
+		
 		// the bid just added is as same as the first item of the list 
 		assertSame("Test that the Bid has added same as the 1st bid of the list? ",bid1,bidList.get(0));
+		
 		//add another bid, test that the size of the list is 2?
 		C206_CaseStudy.addBid(bidList, bid2);
 		C206_CaseStudy.addBid(bidList, bid3);

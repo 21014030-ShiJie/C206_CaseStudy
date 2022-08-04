@@ -62,10 +62,7 @@ public class C206_CaseStudy {
 
 	}
 
-	// option 1 (login)
-//	public static void login() {
-
-
+	// =================================== option 1 (login) ===============================================
 	public static void login(ArrayList<Users> userList) {
 
 		String role = Helper.readString("Enter role > ");
@@ -119,7 +116,6 @@ public class C206_CaseStudy {
 
 
 	// View all Users
-
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
 
