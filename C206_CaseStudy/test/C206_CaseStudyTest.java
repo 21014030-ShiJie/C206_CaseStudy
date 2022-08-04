@@ -16,9 +16,13 @@ public class C206_CaseStudyTest {
 	private Bid bid2;
 	private Bid bid3;
 	
+	private Category c1;
+	private Category c2;
+	private Category c3;
 	
 	private ArrayList<Users> userList;
 	private ArrayList<Bid> bidList;
+	private ArrayList<Category> catList;
 
 	@Before
 	public void setUp() throws Exception {
@@ -30,8 +34,13 @@ public class C206_CaseStudyTest {
 		bid2 = new Bid("A1004","Mac","MikaLee@myrp.edu.sg","MiaTan@myrp.edu.sg",1800.00);
 		bid3 = new Bid("A1005","Sony","MikaLee@myrp.edu.sg","MiaTan@myrp.edu.sg",1500.00);
 		
+		c1 = new Category("Laptops");
+		c2 = new Category("Cameras");
+		c3 = new Category("Books");
+		
 		userList = new ArrayList<Users>();
 		bidList = new ArrayList<Bid>();
+		catList = new ArrayList<Category>();
 	}
 	
 	@Test 
@@ -100,6 +109,26 @@ public class C206_CaseStudyTest {
 	  }
 		
 	
+	
+	public void testAddCategory() {
+		//ensure that catList is not null
+		assertNotNull("Test if there is a valid Category arraylist to add to", catList);
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		C206_CaseStudy.addCategory(catList, c1);
+		assertEquals("Test if that Category arraylist size is 1?", 1, catList.size());
+		
+		//The item added is the same as the first item of the list
+		assertSame("Test that Category is added same as the 1st item of the list?", c1, catList.get(0));
+		
+		//Add another item. Test the size of the list is 3?
+		C206_CaseStudy.addCategory(catList, c2);
+		C206_CaseStudy.addCategory(catList, c3);
+		assertEquals("Test that Category arraylist size is 3?", 3, catList.size());
+		assertSame("Test that Camcorder is added same as 3rd Category of the list", c3, catList.get(2));
+		
+		
+	}
 	
 	@After
 	public void tearDown() throws Exception {

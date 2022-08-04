@@ -16,6 +16,7 @@ public class C206_CaseStudy {
 
 		catList.add(new Category("Laptops"));
 		catList.add(new Category("Cameras"));
+		catList.add(new Category("Books"));
 
 		int option = 0;
 
