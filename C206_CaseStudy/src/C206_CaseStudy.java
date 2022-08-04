@@ -17,6 +17,9 @@ public class C206_CaseStudy {
 		catList.add(new Category("Books"));
 		catList.add(new Category("Electronic Accessories"));
 
+		catList.add(new Category("Laptops"));
+		catList.add(new Category("Cameras"));
+
 		int option = 0;
 
 		while (option != 2) {
@@ -25,8 +28,6 @@ public class C206_CaseStudy {
 			option = Helper.readInt("Enter an option > ");
 
 			if (option == 1) {
-
-//				login();
 
 				login(userList);
 
@@ -55,30 +56,46 @@ public class C206_CaseStudy {
 
 	}
 
+	public static void bidMenu() {
+		System.out.println("Bid for your items");
+		System.out.println("1. View bid");
+		System.out.println("2. Place bid");
+		System.out.println("2. Register Account");
+		System.out.println("3. Exit");
+
+	}
+
 	// option 1 (login)
-	// ==================== option 1 (login)
-	// =============================================
+	// public static void login() {
 
 	public static void login(ArrayList<Users> userList) {
 
-		String username = Helper.readString("Enter Username > ");
 		String role = Helper.readString("Enter role > ");
-		String email = Helper.readString("Enter email address > ");
 		String password = Helper.readString("Enter password > ");
+		
+		boolean success = false;
 
-		if (username == Users.getUserName(username) && password == Users.getPassword(password)) {
-			System.out.println("Login Sucessful");
+		for (int i = 0; i < userList.size(); i++) {
+			if (userList.get(i).getRole().equals(role) && userList.get(i).getPassword().equals(password)) {
 
-			for (int i = 0; i < userList.size(); i++) {
-				if (userList.get(i).getUserName().equals(username) && userList.get(i).getRole().equals(role)
-						&& userList.get(i).equals(email) && userList.get(i).getPassword().equals(password)) {
-					System.out.println("Login Successful as" + userList.get(i).getRole());
+				System.out.println("Logoin Successful as" + userList.get(i).getRole());
+				success = true;
+				if (success == true) {
+					// category menu
+					// options
+					// menu item
+					// view item
+					// deal menu
+					// bid menu
+
+				}
+
+				System.out.println("Login Successful as" + userList.get(i).getRole());
 
 				} else {
 					System.out.println("Enter valid username, role, email and password");
 				}
 			}
-		}
 	}
 
 	// =================== option 2 (new user) ====================================
@@ -114,17 +131,7 @@ public class C206_CaseStudy {
 		}
 	}
 
-	// =============================================== (viewing all items)
-	// ===================================================================================================
-
-	// viewing bid
-	public static void viewBid(ArrayList<Bid> bidList) {
-		System.out.println("Bid List");
-
-	}
-
-	// =============================================== (viewing all items)
-	// ===================================================================================================
+	// (viewing all items)
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
 	}
@@ -138,7 +145,8 @@ public class C206_CaseStudy {
 		String end_date = Helper.readString("Enter the end date > ");
 		double bid_increment = Helper.readDouble("Enter the bid increment > ");
 
-		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, auctionstartdate, end_date, bid_increment);
+		Item itemList = new Item(name, description, minimum_bid_price, isAvailable, auctionstartdate, end_date,
+				bid_increment);
 
 		return itemList;
 	}
@@ -156,6 +164,12 @@ public class C206_CaseStudy {
 		}
 
 		System.out.println(it);
+	}
+
+	// viewing bid
+	public static void viewBid(ArrayList<Bid> bidList) {
+		System.out.println("Bid List");
+
 	}
 
 	public static void addItem(ArrayList<Item> itemList, Item it) {
@@ -192,10 +206,10 @@ public class C206_CaseStudy {
 	}
 
 	public static void deleteBid(ArrayList<Bid> bidList) {
-	String ID = Helper.readString("Enter item ID to delete Bid  >");
-	for ( int i = 0; i < bidList.size(); i++) {
-		if (bidList.get(i).getID().contains(ID) && bidList.get(i).getBidPrice() != 0) {
-			bidList.remove(i);
+		String ID = Helper.readString("Enter item ID to delete Bid  >");
+		for (int i = 0; i < bidList.size(); i++) {
+			if (bidList.get(i).getID().contains(ID) && bidList.get(i).getBidPrice() != 0) {
+				bidList.remove(i);
 			}
 		}
 	}
@@ -239,36 +253,41 @@ public class C206_CaseStudy {
 
 		String dealID = Helper.readString("Enter Deal ID to delete: ");
 
-		boolean exist = doExistDeal(dealList, dealID);
+		String deal = dealID;
+		for (int i = 0; i < dealList.size(); i++) {
+			if (deal == null) {
 
-		if (exist == false) {
-			System.out.println("Deal ID not found!");
+				boolean exist = doExistDeal(dealList, dealID);
 
-		} else {
-			for (int i = 0; i > dealList.size(); i++) {
-				if (dealID.equals(dealList.get(i).getItemName())) {
-					dealList.remove(i);
+				if (exist == false) {
+
+					System.out.println("Deal ID not found!");
+
+				} else {
+
+					char confirmRemove = Helper
+							.readChar("Are you sure you wish to remove " + dealList.get(i).getItemName() + "(Y/N): ");
+
+					if (confirmRemove == 'y' | confirmRemove == 'Y') {
+
+					}
+					for (int x = 0; x > dealList.size(); x++) {
+						if (dealID.equals(dealList.get(x).getItemName())) {
+							dealList.remove(x);
+						}
+					}
+
+					System.out.println("Deal Deleted");
 				}
-				System.out.println("Deal Deleted");
-
 			}
 		}
 	}
 
 	private static boolean doExistDeal(ArrayList<Deal> dealList, String dealID) {
 		return false;
+
 	}
+	// category
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
