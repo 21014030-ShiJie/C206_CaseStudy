@@ -190,6 +190,7 @@ public class C206_CaseStudy {
 		itemList.add(it);
 
 	}
+	// ========================  Bid ===========================================
 
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");
