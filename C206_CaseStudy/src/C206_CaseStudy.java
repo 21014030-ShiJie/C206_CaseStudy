@@ -38,7 +38,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
 
-			}else if (option == 3) {
+			} else if (option == 3) {
 				System.out.println("Thank you for using COAS!");
 			} else {
 				System.out.println("Invalid Option");
@@ -61,13 +61,30 @@ public class C206_CaseStudy {
 		System.out.println("3. Exit");
 
 	}
-	
+
 	public static void mainMenu() {
 		System.out.println("1. View All Items");
 		System.out.println("2. View Category");
 		System.out.println("3. View Bid");
 		System.out.println("4. View Deals");
 		System.out.println("5. Exit");
+	}
+
+	public static void catMenu() {
+		System.out.println("VIEW CATEGORY");
+		System.out.println("1. View All Category");
+		System.out.println("2. Add New Category");
+		System.out.println("3. Delete Category");
+	}
+
+	public static void itemMenu() {
+
+		System.out.println("Adding an item");
+		System.out.println("1. Add an item");
+		System.out.println("2. View all items");
+		System.out.println("3. Update an item");
+		System.out.println("4. Exit");
+
 	}
 
 	// option 1 (login)
@@ -90,26 +107,19 @@ public class C206_CaseStudy {
 				if (success == true) {
 					mainMenu();
 
-
-			
-			}else{
-				System.out.println("Login fail");
-				// category menu
-				// options
-				// menu item
-				// view item
-				// deal menu
-				// bid menu
+				} else {
+					System.out.println("Login fail");
+					// category menu
+					// options
+					// menu item
+					// view item
+					// deal menu
+					// bid menu
 
 				}
 			}
 		}
 	}
-					
-				
-
-
-
 
 	// =================== option 2 (new user) ====================================
 
@@ -176,8 +186,6 @@ public class C206_CaseStudy {
 		System.out.println(it);
 	}
 
-
-
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
 
@@ -194,8 +202,10 @@ public class C206_CaseStudy {
 		return bidList;
 
 	}
-	//view bid
+
+	// view bid
 	public static void viewBit(ArrayList<Bid> bidList) {
+
 		String bd = "";
 
 		for (int i = 0; i < bidList.size(); i++) {
@@ -207,15 +217,18 @@ public class C206_CaseStudy {
 		System.out.println(bd);
 
 	}
-	// adding bid 
+
+	// adding bid
 	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
 		bidList.add(bd);
 	}
-	//do delete 
+
+	// do delete
 	public static void doDeleteBid(ArrayList<Bid> bidList, Bid bd) {
 		bidList.remove(bd);
 	}
-	//delete bid 
+
+	// delete bid
 	public static void deleteBid(ArrayList<Bid> bidList) {
 		String ID = Helper.readString("Enter item ID to delete Bid  >");
 		for (int i = 0; i < bidList.size(); i++) {
@@ -297,38 +310,31 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	
-	//category
-	public static void catMenu() {
-		System.out.println("VIEW CATEGORY");
-		System.out.println("1. View All Category");
-		System.out.println("2. Add New Category");
-		System.out.println("3. Delete Category");
-	}
-	
+	// category
+
 	public static String retrieveCategory(ArrayList<Category> catList) {
 		String output = "";
-		
-		for(int i = 0; i < catList.size(); i++) {
+
+		for (int i = 0; i < catList.size(); i++) {
 			output += String.format("%-5s", catList.get(i).getCatName());
 		}
 		return output;
 	}
-	
+
 	public static void viewAllCategory(ArrayList<Category> catList) {
 		System.out.println("CATEGORY LIST");
-		String output = String.format( "%-5s\n", "Name:");
+		String output = String.format("%-5s\n", "Name:");
 		output += retrieveCategory(catList);
 		System.out.println(output);
 	}
-	
+
 	public static Category inputCat() {
 		String userCat = Helper.readString("Enter new category name: ");
-		
+
 		Category a = new Category(userCat);
 		return a;
 	}
-	
+
 	public static void addCategory(ArrayList<Category> catList, Category a) {
 		catList.add(a);
 	}
@@ -350,11 +356,6 @@ public class C206_CaseStudy {
 
 	public static void deleteBid(ArrayList<Bid> bidList, Bid bid1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
-
-	
-	
-
-	

@@ -90,8 +90,6 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void testDeleteBid() {
-		C206_CaseStudy.addBid(bidList, bid1);
-	    C206_CaseStudy.addBid(bidList, bid2);
 
 	    // Given an empty list, after adding 2 item, the size of the list is 2
 	    assertEquals("Test if the item arrayList is 1?", 2, bidList.size());
@@ -104,6 +102,8 @@ public class C206_CaseStudyTest {
 
 	    // Test that the size of the list is back to 1
 	    C206_CaseStudy.doDeleteBid(bidList,bid1);
+		C206_CaseStudy.addBid(bidList, bid1);
+	    C206_CaseStudy.addBid(bidList, bid2);
 	    assertEquals("Test that bid arrayList size is 1?", 1, bidList.size());
 	    assertSame("Test that 2nd item added is the first time of the list?", bid2, bidList.get(0));
 	  }
