@@ -85,11 +85,11 @@ public class C206_CaseStudy {
 
 				System.out.println("Login Successful as " + userList.get(i).getRole());
 				success = true;
-<<<<<<< HEAD
+
 				if (success == true) {
 					mainMenu();
 
-=======
+
 			
 			}else{
 				System.out.println("Login fail");
@@ -99,8 +99,9 @@ public class C206_CaseStudy {
 				// view item
 				// deal menu
 				// bid menu
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
+
 				}
+			}
 		}
 	}
 					
@@ -174,11 +175,7 @@ public class C206_CaseStudy {
 		System.out.println(it);
 	}
 
-	// viewing bid
-	public static void viewBid(ArrayList<Bid> bidList) {
-		System.out.println("Bid List");
 
-	}
 
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
@@ -196,7 +193,7 @@ public class C206_CaseStudy {
 		return bidList;
 
 	}
-
+	//view bid
 	public static void viewBit(ArrayList<Bid> bidList) {
 		String bd = "";
 
@@ -209,11 +206,15 @@ public class C206_CaseStudy {
 		System.out.println(bd);
 
 	}
-
+	// adding bid 
 	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
 		bidList.add(bd);
 	}
-
+	//do delete 
+	public static void doDeleteBid(ArrayList<Bid> bidList, Bid bd) {
+		bidList.remove(bd);
+	}
+	//delete bid 
 	public static void deleteBid(ArrayList<Bid> bidList) {
 		String ID = Helper.readString("Enter item ID to delete Bid  >");
 		for (int i = 0; i < bidList.size(); i++) {
@@ -343,9 +344,16 @@ public class C206_CaseStudy {
 			}
 		}
 
-		return isRemove;
-
+		return null;
 	}
+
+	public static void deleteBid(ArrayList<Bid> bidList, Bid bid1) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+
+	
 	
 
 	

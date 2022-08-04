@@ -79,6 +79,27 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Bid arraylist is added same as 3rd bid price of the list?",bid3,bidList.get(2));
 		
 	}
+	@Test
+	public void testDeleteBid() {
+		C206_CaseStudy.addBid(bidList, bid1);
+	    C206_CaseStudy.addBid(bidList, bid2);
+
+	    // Given an empty list, after adding 2 item, the size of the list is 2
+	    assertEquals("Test if the item arrayList is 1?", 2, bidList.size());
+
+	    // The bid added is the same as the first bid of the list
+	    assertSame("Test that bid is added same as the 1st bid of the list", bid1, bidList.get(0));
+
+	    // boundary
+	    assertNotNull("test if there is valid Bid arraylist to delete from", bidList);
+
+	    // Test that the size of the list is back to 1
+	    C206_CaseStudy.doDeleteBid(bidList,bid1);
+	    assertEquals("Test that bid arrayList size is 1?", 1, bidList.size());
+	    assertSame("Test that 2nd item added is the first time of the list?", bid2, bidList.get(0));
+	  }
+		
+	
 	
 	@After
 	public void tearDown() throws Exception {
