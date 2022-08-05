@@ -165,13 +165,28 @@ public class C206_CaseStudy {
 		System.out.println(it);
 	}
 	
-
-
-
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
-
 	}
+	public static void doDeleteItem(ArrayList<Item> itemList, Item it) {
+		itemList.remove(it);
+		}
+	
+	public static void deleteItem(ArrayList<Item> itemList) {
+		String Name = Helper.readString("Enter item name to delete Item > ");
+		String Description = Helper.readString("Enter item description to delete Item > ");
+		for (int i = 0; i < itemList.size(); i++) {
+			if (itemList.get(i).getName().contains(Name) && itemList.get(i).getDescription().contains(Description)) {
+				itemList.remove(i);
+			}
+		}
+	}
+	
+	public static String retrieveAllItem(ArrayList<Item> itemList) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	// ========================  Bid ===========================================
 
 	public static Bid insertBid() {
