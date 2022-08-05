@@ -31,12 +31,11 @@ public class C206_CaseStudyTest {
 	//item data
 	private Item I1;
 	private Item I2;
-	private Item I3;
 
 	@Before
 	public void setUp() throws Exception {
-		//I1 = new Item("Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
-		//I2 = new Item ("Acer", "A12", 1300.00, false, "09/07", "19/10", 10.00);
+		I1 = new Item("Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
+		I2 = new Item ("Acer", "A12", 1300.00, false, "09/07", "19/10", 10.00);
 		
 		user1 = new Users("TomTan","System Administrator", "TomTan@myrp.edu.sg" ,"p@sswo0rd");
 		user2 = new Users("MiaTan","Buyer", "MiaTan@myrp.edu.sg","p@5sword");
@@ -105,6 +104,45 @@ public class C206_CaseStudyTest {
 	assertEquals("Test that item arraylist size is 2", 2, itemList.size());
 	assertSame("Test that item is added", I2, itemList.get(1));
 }
+	@Test
+	public void testDeleteItem() {
+
+	    // Given an empty list, after adding 2 item, the size of the list is 2
+	    assertEquals("Test if the item arrayList is 1?", 2, itemList.size());
+
+	    // The bid added is the same as the first bid of the list
+	    assertSame("Test that item is added same as the 1st bid of the list", I1, itemList.get(0));
+
+	    // boundary
+	    assertNotNull("test if there is valid Item arraylist to delete from", itemList);
+
+	    // Test that the size of the list is back to 1
+	    C206_CaseStudy.doDeleteItem(itemList,I1);
+		C206_CaseStudy.addItem(itemList, I1);
+	    C206_CaseStudy.addItem(itemList, I2);
+	    assertEquals("Test that item arrayList size is 1?", 1, itemList.size());
+	    assertSame("Test that 2nd item added is the first time of the list?", I2, itemList.get(0));
+	  }
+	@Test
+	public void testRetrieveAllItem() {
+		// Test if the Item list is not null but empty - boundary
+		assertNotNull("Test if there is valid Item in the arraylist", itemList);
+		
+		// test if the list of item retrieved from the item list is empty - boundary
+		String allItem = C206_CaseStudy.retrieveAllItem(itemList);
+		String testOutput = "";
+		assertEquals("Check that ViewAllItemList", testOutput, allItem);
+		
+		// Given an empty list, after adding 2 items =m test i the size of the item list is 2 - normal
+		C206_CaseStudy.addItem(itemList, I1);
+		C206_CaseStudy.addItem(itemList, I2);
+		assertEquals("Test that Item in the arraylist size is 2", 2, itemList.size());
+		
+		// test if the expected output string is the same as the list of item retrieved from the item list
+		allItem = C206_CaseStudy.retrieveAllItem(itemList);
+		testOutput = String.format("%-10s %-10s %-15s %-10s %-15 %-30s %-10s\n","Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
+		testOutput = String.format("%-10s %-10s %-15s %-10s %-15 %-30s %-10s\n", "Acer", "A12", 1300.00, false, "09/07", "19/10", 10.00);
+	}
 	@Test
 	public void testAddBid() {
 		// assure the BidList is not null
