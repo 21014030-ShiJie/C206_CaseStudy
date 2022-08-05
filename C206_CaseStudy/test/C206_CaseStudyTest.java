@@ -16,6 +16,7 @@ public class C206_CaseStudyTest {
 	private Category c1;
 	private Category c2;
 	private Category c3;
+
 	
 	private Deal deal1;
 	private Deal deal2;
@@ -27,18 +28,15 @@ public class C206_CaseStudyTest {
 	private ArrayList<Category> catList;
 	private ArrayList<Deal> dealList;
 
-
 	//item data
 	private Item I1;
 	private Item I2;
 	private Item I3;
 
-
-
 	@Before
 	public void setUp() throws Exception {
-		I1 = new Item("Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
-		I2 = new Item ("Acer", "A12", 1300.00, false, "09/07", "19/10", 10.00);
+		//I1 = new Item("Asus", "A11", 1990.00, true, "23/03", "24/04", 22.00);
+		//I2 = new Item ("Acer", "A12", 1300.00, false, "09/07", "19/10", 10.00);
 		
 		user1 = new Users("TomTan","System Administrator", "TomTan@myrp.edu.sg" ,"p@sswo0rd");
 		user2 = new Users("MiaTan","Buyer", "MiaTan@myrp.edu.sg","p@5sword");
@@ -140,7 +138,6 @@ public class C206_CaseStudyTest {
 		assertEquals("Test if the item arrayList is 1?", 2, bidList.size());
 	}
 
-
 	@Test
 	public void testAddCategory() {
 		//ensure that catList is not null
@@ -174,6 +171,26 @@ public class C206_CaseStudyTest {
 		assertSame("Test that Deal arraylist is added same as 3rd deal price of the list?", deal3, dealList.get(2));
 		
 	}
+	@Test
+	public void testDeleteDeal() {
+		C206_CaseStudy.addDeal(dealList, deal1);
+	    C206_CaseStudy.addDeal(dealList, deal2);
+
+	    // Given an empty list, after adding 2 item, the size of the list is 2
+	    assertEquals("Test if the item arrayList is 1?", 2, dealList.size());
+
+	    // The bid added is the same as the first bid of the list
+	    assertSame("Test that deal is added same as the 1st deal of the list", deal1, dealList.get(0));
+
+	    // boundary
+	    assertNotNull("test if there is valid Deal arraylist to delete from", dealList);
+
+	    // Test that the size of the list is back to 1
+	    C206_CaseStudy.doDeleteDeal(dealList, deal1);
+
+	    assertEquals("Test that deal arrayList size is 1?", 1, dealList.size());
+	    assertSame("Test that 2nd item added is the first time of the list?", deal2, dealList.get(0));
+	  }
 
 	@After
 	public void tearDown() throws Exception {
@@ -186,6 +203,8 @@ public class C206_CaseStudyTest {
 		bidList = null;
 		I1 = null;
 		I2 = null;
+		deal1 = null;
+		deal2 = null;
 	}
 
 	@Test

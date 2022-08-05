@@ -69,9 +69,7 @@ public class C206_CaseStudy {
 		System.out.println("4. Exit");
 	}
 
-
 	// =================================== option 1 (login) ===============================================
-
 	public static void login(ArrayList<Users> userList) {
 
 		String role = Helper.readString("Enter role > ");
@@ -133,9 +131,7 @@ public class C206_CaseStudy {
 		}
 	}
 
-
 	// =============================================== (viewing all items) ===================================================================================================
-
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
 	}
@@ -249,8 +245,12 @@ public class C206_CaseStudy {
 
 	public static void addDeal(ArrayList<Deal> dealList, Deal output) {
 		dealList.add(output);
+		
 	}
-
+	public static void doDeleteDeal(ArrayList<Deal> dealList, Deal dl) {
+		dealList.remove(dl);
+		
+	}
 	// deleting deal
 	public static void deleteDeal(ArrayList<Deal> dealList) {
 
@@ -324,5 +324,4 @@ public class C206_CaseStudy {
 		public static void addCategory(ArrayList<Category> catList, Category a) {
 			catList.add(a);
 		}
-
 }
