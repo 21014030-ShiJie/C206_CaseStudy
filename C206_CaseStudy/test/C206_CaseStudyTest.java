@@ -209,6 +209,7 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Category arraylist size is 3?", 3, catList.size());
 		assertSame("Test that Camcorder is added same as 3rd Category of the list", c3, catList.get(2));
 	}
+
 	
 	@Test
 	public void testViewCategory() {
@@ -238,9 +239,8 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.doDeleteCat(catList, c1);
 		assertEquals("Test that Category arrayList size is 1", 1, catList.size());
 		assertSame("Test that remaining object is the 2nd object of the previous list", c2, catList.get(0));
-		
 	}
-	
+
 	@Test
 	public void testAddDeal() {
 		// assure the BidList is not null
@@ -254,8 +254,8 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addDeal(dealList, deal3);
 		assertEquals("Test that Deal arraylist size is 3?", 3, dealList.size());
 		assertSame("Test that Deal arraylist is added same as 3rd deal price of the list?", deal3, dealList.get(2));
-		
 	}
+
 	@Test
 	public void testDeleteDeal() {
 		C206_CaseStudy.addDeal(dealList, deal1);
@@ -297,4 +297,8 @@ public class C206_CaseStudyTest {
 		//fail("Not yet implemented"); 
 		assertTrue("C206_CaseStudy_SampleTest ",true);
 	}
+
 }
+
+
+
