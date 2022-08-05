@@ -16,7 +16,6 @@ public class C206_CaseStudy {
 
 		catList.add(new Category("Laptops"));
 		catList.add(new Category("Cameras"));
-		catList.add(new Category("Books"));
 
 		int option = 0;
 
@@ -38,7 +37,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.addnewUsers(userList, newUser);
 				System.out.println("New User Added!");
 
-			}else if (option == 3) {
+			} else if (option == 3) {
 				System.out.println("Thank you for using COAS!");
 			} else {
 				System.out.println("Invalid Option");
@@ -56,23 +55,21 @@ public class C206_CaseStudy {
 
 	public static void bidMenu() {
 		System.out.println("Bid for your items");
-		System.out.println("1. Place bid");
+		System.out.println("1. View bid");
+		System.out.println("2. Place bid");
 		System.out.println("2. Register Account");
 		System.out.println("3. Exit");
 
 	}
-	
-	public static void mainMenu() {
-		System.out.println("1. View All Items");
-		System.out.println("2. View Category");
-		System.out.println("3. View Bid");
-		System.out.println("4. View Deals");
-		System.out.println("5. Exit");
+	public static void itemMenu () {
+		System.out.println("Adding an item");
+		System.out.println("1. Add an item");
+		System.out.println("2. View all items");
+		System.out.println("3. Update an item");
+		System.out.println("4. Exit");
 	}
 
-	// option 1 (login)
-//	public static void login() {
-
+	// =================================== option 1 (login) ===============================================
 	public static void login(ArrayList<Users> userList) {
 
 		String role = Helper.readString("Enter role > ");
@@ -86,11 +83,6 @@ public class C206_CaseStudy {
 
 				System.out.println("Login Successful as " + userList.get(i).getRole());
 				success = true;
-<<<<<<< HEAD
-				if (success == true) {
-					mainMenu();
-
-=======
 			
 			}else{
 				System.out.println("Login fail");
@@ -100,7 +92,6 @@ public class C206_CaseStudy {
 				// view item
 				// deal menu
 				// bid menu
->>>>>>> branch 'master' of https://github.com/21014030-ShiJie/C206_CaseStudy.git
 				}
 		}
 	}
@@ -130,7 +121,6 @@ public class C206_CaseStudy {
 	}
 
 	// View all Users
-
 	public static void viewUsers(ArrayList<Users> userList) {
 		String us = "";
 
@@ -141,7 +131,7 @@ public class C206_CaseStudy {
 		}
 	}
 
-	// (viewing all items)
+	// =============================================== (viewing all items) ===================================================================================================
 	public static void viewItems(ArrayList<Item> itemList) {
 		System.out.println("Item List");
 	}
@@ -174,17 +164,30 @@ public class C206_CaseStudy {
 
 		System.out.println(it);
 	}
-
-	// viewing bid
-	public static void viewBid(ArrayList<Bid> bidList) {
-		System.out.println("Bid List");
-
-	}
-
+	
 	public static void addItem(ArrayList<Item> itemList, Item it) {
 		itemList.add(it);
-
 	}
+	public static void doDeleteItem(ArrayList<Item> itemList, Item it) {
+		itemList.remove(it);
+		}
+	
+	public static void deleteItem(ArrayList<Item> itemList) {
+		String Name = Helper.readString("Enter item name to delete Item > ");
+		String Description = Helper.readString("Enter item description to delete Item > ");
+		for (int i = 0; i < itemList.size(); i++) {
+			if (itemList.get(i).getName().contains(Name) && itemList.get(i).getDescription().contains(Description)) {
+				itemList.remove(i);
+			}
+		}
+	}
+	
+	public static String retrieveAllItem(ArrayList<Item> itemList) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	// ========================  Bid ===========================================
 
 	public static Bid insertBid() {
 		String name = Helper.readString("Enter your name >");
@@ -198,7 +201,7 @@ public class C206_CaseStudy {
 
 	}
 
-	public static void viewBit(ArrayList<Bid> bidList) {
+	public static void viewBid(ArrayList<Bid> bidList) {
 		String bd = "";
 
 		for (int i = 0; i < bidList.size(); i++) {
@@ -213,6 +216,9 @@ public class C206_CaseStudy {
 
 	public static void addBid(ArrayList<Bid> bidList, Bid bd) {
 		bidList.add(bd);
+	}
+	public static void doDeleteBid(ArrayList<Bid> bidList, Bid bd) {
+		bidList.remove(bd);
 	}
 
 	public static void deleteBid(ArrayList<Bid> bidList) {
@@ -254,8 +260,12 @@ public class C206_CaseStudy {
 
 	public static void addDeal(ArrayList<Deal> dealList, Deal output) {
 		dealList.add(output);
+		
 	}
-
+	public static void doDeleteDeal(ArrayList<Deal> dealList, Deal dl) {
+		dealList.remove(dl);
+		
+	}
 	// deleting deal
 	public static void deleteDeal(ArrayList<Deal> dealList) {
 
@@ -296,8 +306,8 @@ public class C206_CaseStudy {
 		return false;
 	}
 
-	
-	//category
+	// category
+
 	public static void catMenu() {
 		System.out.println("VIEW CATEGORY");
 		System.out.println("1. View All Category");
@@ -331,22 +341,18 @@ public class C206_CaseStudy {
 	public static void addCategory(ArrayList<Category> catList, Category a) {
 		catList.add(a);
 	}
+	
+	public static void doDeleteCat(ArrayList<Category> catList, Category a) {
+		catList.remove(a);
+	}
 
-	public static Category removeCat(ArrayList<Category> catList) {
+	public static void deleteCat(ArrayList<Category> catList) {
 		String removeCat = Helper.readString("Enter category to remove: ");
-
-		boolean isRemove = false;
-
-		for (int i = 0; i < catList.size(); i++) {
-			if (catList.get(i).getCatName() == removeCat) {
+		
+		for(int i = 0; i < catList.size(); i++) {
+			if (catList.get(i).getCatName().contains(removeCat)) {
 				catList.remove(i);
-				isRemove = true;
 			}
 		}
-
-		return isRemove;
-
 	}
-	
-
-	
+}
