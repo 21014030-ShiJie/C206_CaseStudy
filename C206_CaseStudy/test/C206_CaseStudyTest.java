@@ -240,6 +240,16 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that Category arrayList size is 1", 1, catList.size());
 		assertSame("Test that remaining object is the 2nd object of the previous list", c2, catList.get(0));
 	}
+	@Test
+	public void testViewDeal() {
+		//add bid to the list 
+		C206_CaseStudy.addDeal(dealList, deal1);
+	    C206_CaseStudy.addDeal(dealList, deal2);
+		//ensure list is not null 
+		assertNotNull( "Test if there is a valid Deal arraylist to add to", dealList);
+		//test if the list of bid is not empty 
+		assertEquals("Test if the item arrayList is 1?", 2, dealList.size());
+	}
 
 	@Test
 	public void testAddDeal() {
@@ -299,6 +309,3 @@ public class C206_CaseStudyTest {
 	}
 
 }
-
-
-
